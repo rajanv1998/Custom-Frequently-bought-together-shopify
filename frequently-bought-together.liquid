@@ -1,0 +1,70 @@
+{% if product.metafields.custom.featured_products != blank %}
+<div class="system">
+            <span class="product-variant__name featured-product-title">FREQUENTLY BOUGHT TOGETHER</span>
+
+              {% assign meta_products_string = product.metafields.custom.featured_products | remove: 'gid://shopify/Product/' | remove: "[" | remove: "]" | remove: '"' %}
+          
+            {% assign meta_product_ids = meta_products_string | split: ',' %}
+        
+          <ul class="product-variant-grp">
+       <div class="frequently-bought-images">                                                               
+            {% for meta_product_id in meta_product_ids %}
+              {%- liquid
+                assign product_id = meta_product_id | times: 1
+                assign products_obj = collections.all.products | where: 'id', product_id
+                assign meta_product =  products_obj[0]
+            -%}
+              <div class="frequentyly-img-text product-checkbox-{{forloop.index}}">
+              <div class="frequentyly-img">
+              <img src="{{ meta_product.featured_image | product_img_url: '100x100'}}">
+              </div>
+              
+              
+              </div>
+              {% if forloop.last %}
+              {% else %}
+                <div class="plus_icon">+</div>
+                {% endif %}
+           {% endfor %}
+     </div>
+    <div class="add-to-cart-total-price">
+
+<button class="custom-add-to-cart">Add to Cart</button>
+    </div>
+<input type="hidden" class="hide_v" value="">
+     <div class="frequently-bought-texts">
+           {% for meta_product_id in meta_product_ids %}
+              {%- liquid
+                assign product_id = meta_product_id | times: 1
+                assign products_obj = collections.all.products | where: 'id', product_id
+                assign meta_product =  products_obj[0]
+            -%}
+              <div class="frequentyly-img-text-price">
+              <div class="frequentyly-text-price">
+             <div class="frequently-checkbox">
+              <input type="checkbox" data-dval="product-checkbox-{{forloop.index}}" class="product-checkbox-{{forloop.index}}" id="h" name="h" value="Bike" checked>
+             </div>
+             <div sel-val="" class="frequently-price-title frequently-product-add {{forloop.index}}  {% if product.handle == meta_product.handle%}active-product{% endif%}">      
+            <a href="{{ meta_product.url }}" class="product-link">{% if product.handle == meta_product.handle%}This item:{% endif%}{{ meta_product.title }}</a>
+            <select id="product-select" name="id" class="selector-for-featured-product">
+             {% for variant in meta_product.variants %}                            
+            <option {%if variant.inventory_quantity == 0 and variant.inventory_policy != "continue"  %}disabled="disabled"
+                {% elsif variant.inventory_quantity == 0 and variant.inventory_policy == "continue" %}
+                class="availability-time"
+                {%endif%} value="{{ variant.id }}" data-quantity="{{ variant.inventory_quantity }}"
+                {% if forloop.first and variant.inventory_quantity > 0 %}  selected="selected" {% endif %}
+                {% comment %} {% if variant == meta_product.selected_or_first_available_variant %}selected="selected"{% endif %} {%endcomment %}
+                >
+            {% if variant.title contains 'Default Title' %} {{variant.title}} - {{ variant.price | money }} {%else%} {{ variant.title }} - {{ variant.price | money }} {% endif %}
+            </option>
+            {% endfor %}
+            </select>
+             </div>
+            </div>
+              </div>  
+           {% endfor %}
+     </div>
+            
+            </ul>
+</div>
+{% endif %}
