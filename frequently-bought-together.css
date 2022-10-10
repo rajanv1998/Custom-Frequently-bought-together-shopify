@@ -1,0 +1,138 @@
+.system {
+  padding: 50px 0;
+}
+
+.frequently-bought-images .plus_icon {
+  display: flex;
+  align-items: center;
+  font-size: 22px;
+  padding: 0 10px;
+}
+
+.frequentyly-img img {
+  display: block;
+}
+
+.frequentyly-text {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 15px;
+}
+
+ul.product-variant-grp {
+  padding-left: 0px;
+}
+
+.frequentyly-text li.meta-products {
+  list-style-type: none;
+  padding-bottom: 10px;
+}
+
+.frequentyly-text li.meta-products a {
+  color: #000;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.product-variant-grp {
+  width: 100%;
+}
+
+.custom-add-to-cart {
+  background: #5c5c5c;
+  padding: 0 20px;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+  min-height: 40px;
+  line-height: 1.2;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: all 0.2s linear;
+  font-weight: 500;
+  border: 1px solid transparent;
+  margin-top: 5px;
+}
+
+.custom-add-to-cart:hover {
+  background: transparent;
+  color: #5c5c5c;
+  border: 1px solid #5c5c5c;
+}
+
+.product-variant__name.featured-product-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #000;
+  letter-spacing: 0.1em;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.frequently-bought-images {
+  display: flex;
+  flex-direction: row;
+}
+
+.frequently-checkbox {
+  margin-right: 7px;
+}
+
+.frequentyly-text-price {
+  display: flex;
+  align-items: center;
+}
+
+.frequently-price-title li.meta-products {
+  list-style-type: none;
+}
+
+.frequentyly-img-text-price .frequently-price-title a {
+  text-decoration: none;
+  color: #000;
+}
+
+.frequentyly-img-text-price select#product-select {
+  display: inline-block;
+  appearance: menulist;
+  background-image: none;
+  width: auto;
+  font-size: 15px;
+  border: 1px solid rgb(105, 105, 105);
+  color: rgb(105, 105, 105);
+  background-color: rgb(255, 255, 255);
+  padding: 4px;
+  margin: 0 7px;
+}
+
+.frequently-price-title.active-product {
+  font-weight: bold;
+}
+
+.frequentyly-img-text-price {
+  padding: 5px 0px;
+}
+
+.add-to-cart-total-price {
+  padding: 15px 0px;
+}
+
+.frequentyly-img-text-price select#product-select:focus-visible {
+  outline: none;
+  outline-offset: unset;
+  box-shadow: unset;
+}
+
+.system .button--full-width {
+  display: flex;
+  width: 100%;
+  padding: 8px 20px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  font-size: 15px;
+  cursor: pointer;
+}
